@@ -1,3 +1,3 @@
-interface Scanner {
-  bool find(String address);
+abstract class Scanner {
+  Future<bool> present(String address);
 }

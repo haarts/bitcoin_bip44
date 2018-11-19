@@ -33,7 +33,11 @@ void main() {
     test("list accounts for coin", () {});
   });
 
-  test("list addresses for account", () {});
+  test("list addresses for account", () {
+    var bitcoin = bip44.coins()[0];
+    var addresses = bitcoin.accounts().first.usedAddresses();
+  });
+
   test("return next unused account", () {});
 }
 
