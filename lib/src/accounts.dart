@@ -5,6 +5,7 @@ import 'package:bitcoin_bip32/bitcoin_bip32.dart';
 import 'bip44.dart';
 import 'coins.dart';
 import 'addresses.dart';
+import 'discover.dart';
 
 class Account {
   final Coin coin;
@@ -17,10 +18,27 @@ class Account {
         change = change;
 
   String get path => "${coin.path}/$index/$change";
+  Chain get chain => coin.chain;
 
-  Address nextUnusedAddress() {}
+  Future<Address> nextUnusedAddress() async {
+    var usedAddresses = await usedAddresses();
+    return Address(this, usedAddresses.last.index + 1);
+  }
 
-  Iterator<Address> usedAddresses() {}
+  Future<List<Address>> usedAddresses() async {
+    List<Address> usedAddresses = [];
+
+    int addressIndex = 0;
+    Address nextAddress = Address(this, addressIndex);
+
+    while (await scanners[0].present(nextAddress.P2PKH)) {
+      usedAddresses.add(nextAddress);
+      addressIndex++;
+      nextAddress = Address(this, addressIndex);
+    }
+
+    return usedAddresses;
+  }
 
   Account next() {
     return Account(coin, index + 1, changeExternal);
@@ -31,7 +49,9 @@ class AccountIterator implements Iterator<Account> {
   Account _current;
   final Coin _coin;
 
-  AccountIterator(Coin coin) : _coin = coin;
+  AccountIterator(Coin coin) : _coin = coin {
+    _current = Account(_coin, 0, changeExternal);
+  }
 
   @override
   Account get current => _current;
@@ -40,7 +60,7 @@ class AccountIterator implements Iterator<Account> {
   bool moveNext() {
     Account account = _current.next();
 
-    Address nextUnusedAddress = account.nextUnusedAddress();
+    Address nextUnusedAddress = null; //account.nextUnusedAddress();
 
     if (nextUnusedAddress.index == 0) {
       return false;
