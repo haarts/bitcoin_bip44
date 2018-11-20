@@ -3,6 +3,7 @@ import 'dart:collection';
 import 'package:bitcoin_bip32/bitcoin_bip32.dart';
 
 import 'coins.dart';
+import 'discover.dart';
 
 /// Start indeces
 const int purpose = firstHardenedChild + 44;
@@ -21,11 +22,7 @@ String forHumans(int index) {
 }
 
 class Bip44 {
-  final Chain chain;
+  final List<Coin> coins;
 
-  Bip44(String seed) : chain = Chain.seed(seed);
-
-  List<Coin> coins() {
-    return Coins.coins(chain);
-  }
+  Bip44(seed) : coins = Coins.coins(Chain.seed(seed));
 }
