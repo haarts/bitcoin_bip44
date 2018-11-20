@@ -17,8 +17,8 @@ class Blockstream implements Scanner {
   Blockstream(this.url);
 
   Future<bool> present(String address) async {
-    var response = await http.get("$url/address/$address",
-        headers: defaultHeaders);
+    var response =
+        await http.get("$url/address/$address", headers: defaultHeaders);
     return response.statusCode == 200;
   }
 }
