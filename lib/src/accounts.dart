@@ -44,38 +44,3 @@ class Account {
     return Account(coin, index + 1, changeExternal);
   }
 }
-
-class AccountIterator implements Iterator<Account> {
-  Account _current;
-  final Coin _coin;
-
-  AccountIterator(Coin coin) : _coin = coin {
-    _current = Account(_coin, 0, changeExternal);
-  }
-
-  @override
-  Account get current => _current;
-
-  @override
-  bool moveNext() {
-    Account account = _current.next();
-
-    Address nextUnusedAddress = null; //account.nextUnusedAddress();
-
-    if (nextUnusedAddress.index == 0) {
-      return false;
-    }
-
-    _current = account;
-
-    return true;
-  }
-}
-
-class Accounts extends Object with IterableMixin<Account> {
-  final Coin _coin;
-
-  Accounts(Coin coin) : _coin = coin;
-
-  Iterator<Account> get iterator => AccountIterator(_coin);
-}
