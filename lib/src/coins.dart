@@ -1,7 +1,7 @@
 import 'package:bitcoin_bip32/bitcoin_bip32.dart';
 
-import 'bip44.dart';
 import 'accounts.dart';
+import 'bip44.dart';
 
 /// Here are defined the different crypto currencies as per https://github.com/satoshilabs/slips/blob/master/slip-0044.md
 /// This list is incomplete.

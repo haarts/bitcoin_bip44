@@ -29,16 +29,7 @@ void main() {
     test("for litecoin", () {
       expect(bip44.coins[2].path, "m/44'/2'");
     });
-
-    test("list accounts for coin", () {});
   });
-
-  test("list addresses for account", () {
-    var bitcoin = bip44.coins[0];
-    var addresses = bitcoin.accounts().first.usedAddresses();
-  });
-
-  test("return next unused account", () {});
 }
 
 String toHexString(String original) {

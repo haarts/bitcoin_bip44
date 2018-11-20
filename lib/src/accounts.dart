@@ -1,10 +1,8 @@
-import 'dart:collection';
-
 import 'package:bitcoin_bip32/bitcoin_bip32.dart';
 
+import 'addresses.dart';
 import 'bip44.dart';
 import 'coins.dart';
-import 'addresses.dart';
 import 'discover.dart';
 
 class Account {

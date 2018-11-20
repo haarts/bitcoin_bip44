@@ -1,9 +1,6 @@
-import 'dart:collection';
-
 import 'package:bitcoin_bip32/bitcoin_bip32.dart';
 
 import 'coins.dart';
-import 'discover.dart';
 
 /// Start indeces
 const int purpose = firstHardenedChild + 44;
