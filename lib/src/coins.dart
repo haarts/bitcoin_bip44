@@ -19,16 +19,22 @@ class Coins {
 }
 
 class Coin {
-  final Chain _chain;
-  final int _index;
+  final Chain chain;
+  final int index;
 
-  Coin(Chain chain, int index)
-      : _chain = chain,
-        _index = index;
+  Coin(this.chain, this.index);
 
-  String get path => "m/${forHumans(purpose)}/${forHumans(_index)}";
+  String get path => "m/${forHumans(purpose)}/${forHumans(index)}";
 
-  Iterator<Account> accounts() {
-    return Accounts(this).iterator;
+  Future<List<Account>> accounts() async {
+    List<Account> accounts = [];
+
+    Account next = Account(this, 0, changeExternal);
+    while (await next.isUsed) {
+      accounts.add(next);
+      next = next.next();
+    }
+
+    return accounts;
   }
 }

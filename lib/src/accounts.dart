@@ -19,10 +19,18 @@ class Account {
 
   String get path => "${coin.path}/$index/$change";
   Chain get chain => coin.chain;
+  Future<bool> get isUsed async {
+    return (await nextUnusedAddress()).index != 0;
+  }
 
   Future<Address> nextUnusedAddress() async {
-    var usedAddresses = await usedAddresses();
-    return Address(this, usedAddresses.last.index + 1);
+    var used = await usedAddresses();
+
+    if (used.length == 0) {
+      return Address(this, 0);
+    }
+
+    return Address(this, used.last.index + 1);
   }
 
   Future<List<Address>> usedAddresses() async {
