@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'discover/blockchair.dart';
 import 'discover/blockstream.dart';
 
