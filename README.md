@@ -43,6 +43,7 @@ dependencies:
 - Only traditional Bitcoin addresses (starting with a '1') are scanned for, 
   add segwit
 - Add 'Address gap limit'
+- Cache address scanning
 
 ## Licence overview
 
