@@ -25,7 +25,7 @@ class Account {
   Future<Address> nextUnusedAddress() async {
     var used = await usedAddresses();
 
-    if (used.length == 0) {
+    if (used.isEmpty) {
       return Address(this, 0);
     }
 
