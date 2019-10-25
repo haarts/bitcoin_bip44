@@ -26,4 +26,3 @@ String toHexString(String original) {
       .toList()
       .join("");
 }
-
