@@ -4,9 +4,9 @@ import 'package:mock_web_server/mock_web_server.dart';
 
 import 'package:test/test.dart';
 
-import '../lib/src/discover.dart';
-import '../lib/src/discover/blockchair.dart';
-import '../lib/src/discover/blockstream.dart';
+import 'package:bitcoin_bip44/src/discover.dart';
+import 'package:bitcoin_bip44/src/discover/blockchair.dart';
+import 'package:bitcoin_bip44/src/discover/blockstream.dart';
 
 void main() {
   group("address scanning", () {
