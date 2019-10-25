@@ -1,6 +1,7 @@
 # BIP44
 
 [![pub package](https://img.shields.io/pub/v/bitcoin_bip44.svg)](https://pub.dartlang.org/packages/bitcoin_bip44)
+[![CircleCI](https://circleci.com/gh/inapay/bitcoin_bip44.svg?style=svg)](https://circleci.com/gh/inapay/bitcoin_bip44)
 
 An implementation of the [BIP44 spec] for organizing Hierarchical Deterministic Bitcoin
 addresses. Based on the BIP32 spec.
