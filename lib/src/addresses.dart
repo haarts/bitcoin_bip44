@@ -31,7 +31,7 @@ class Address {
       : account = account,
         index = index;
 
-  String get path => "${account.path}/$index";
+  String get path => '${account.path}/$index';
   Chain get chain => account.chain;
   ECPoint get publicKey => chain.forPath(path).publicKey().q;
 

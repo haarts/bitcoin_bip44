@@ -25,7 +25,7 @@ class Coin {
 
   Coin(this.chain, this.index);
 
-  String get path => "m/${forHumans(purpose)}/${forHumans(index)}";
+  String get path => 'm/${forHumans(purpose)}/${forHumans(index)}';
 
   Future<List<Account>> accounts() async {
     List<Account> accounts = [];

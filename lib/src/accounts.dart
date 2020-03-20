@@ -16,7 +16,7 @@ class Account {
         index = index,
         change = change;
 
-  String get path => "${coin.path}/$index/$change";
+  String get path => '${coin.path}/$index/$change';
   Chain get chain => coin.chain;
   Future<bool> get isUsed async {
     return (await nextUnusedAddress()).index != 0;

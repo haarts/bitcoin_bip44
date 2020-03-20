@@ -1,20 +1,20 @@
 import 'package:test/test.dart';
 
-import "package:bitcoin_bip44/bitcoin_bip44.dart";
+import 'package:bitcoin_bip44/bitcoin_bip44.dart';
 
 void main() {
   Bip44 bip44;
 
   setUp(() {
-    bip44 = Bip44(toHexString("some seed"));
+    bip44 = Bip44(toHexString('some seed'));
   });
 
-  test("initialize", () {
+  test('initialize', () {
     expect(bip44, isNotNull);
   });
 
-  group("coins", () {
-    test("list all coins", () {
+  group('coins', () {
+    test('list all coins', () {
       expect(bip44.coins, hasLength(3));
     });
 
@@ -34,7 +34,7 @@ void main() {
 
 String toHexString(String original) {
   return original.codeUnits
-      .map((c) => c.toRadixString(16).padLeft(2, "0"))
+      .map((c) => c.toRadixString(16).padLeft(2, '0'))
       .toList()
-      .join("");
+      .join('');
 }

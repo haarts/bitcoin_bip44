@@ -1,7 +1,7 @@
-import "package:bitcoin_bip44/bitcoin_bip44.dart";
+import 'package:bitcoin_bip44/bitcoin_bip44.dart';
 
 void main() {
-  Bip44 bip44 = Bip44(toHexString("some seed"));
+  Bip44 bip44 = Bip44(toHexString('some seed'));
   Coin bitcoin = bip44.coins[0];
   var account = Account(bitcoin, 0, changeExternal);
   account.nextUnusedAddress().then((address) => print(address));
@@ -22,7 +22,7 @@ class MyOwnScanner extends Scanner {
 
 String toHexString(String original) {
   return original.codeUnits
-      .map((c) => c.toRadixString(16).padLeft(2, "0"))
+      .map((c) => c.toRadixString(16).padLeft(2, '0'))
       .toList()
-      .join("");
+      .join('');
 }
