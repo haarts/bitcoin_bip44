@@ -35,8 +35,8 @@ class Account {
   Future<List<Address>> usedAddresses() async {
     List<Address> usedAddresses = [];
 
-    int addressIndex = 0;
-    Address nextAddress = Address(this, addressIndex);
+    var addressIndex = 0;
+    var nextAddress = Address(this, addressIndex);
 
     while (await scanners[0].present(nextAddress.P2PKH)) {
       usedAddresses.add(nextAddress);

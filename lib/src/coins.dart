@@ -30,7 +30,7 @@ class Coin {
   Future<List<Account>> accounts() async {
     List<Account> accounts = [];
 
-    Account next = Account(this, 0, changeExternal);
+    var next = Account(this, 0, changeExternal);
     while (await next.isUsed) {
       accounts.add(next);
       next = next.next();
