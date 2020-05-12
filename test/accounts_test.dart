@@ -9,8 +9,8 @@ void main() {
   Account account;
 
   setUp(() {
-    Bip44 bip44 = Bip44(toHexString('some seed'));
-    Coin bitcoin = bip44.coins[0];
+    var bip44 = Bip44(toHexString('some seed'));
+    var bitcoin = bip44.coins[0];
     account = Account(bitcoin, 0, changeExternal);
   });
 
@@ -22,7 +22,7 @@ void main() {
   test('return next unused address', () async {
     scanners = [MockScanner()];
 
-    Address next = await account.nextUnusedAddress();
+    var next = await account.nextUnusedAddress();
 
     expect(next, isNotNull);
 
@@ -64,6 +64,7 @@ String toHexString(String original) {
 class MockScanner implements Scanner {
   int counter = 0;
 
+  @override
   Future<bool> present(String address) {
     if (counter < 10) {
       counter++;

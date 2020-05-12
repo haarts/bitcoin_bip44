@@ -6,9 +6,9 @@ void main() {
   Address address;
 
   setUp(() {
-    Bip44 bip44 = Bip44('00');
-    Coin bitcoin = bip44.coins[0];
-    Account account = Account(bitcoin, 0, changeExternal);
+    var bip44 = Bip44('00');
+    var bitcoin = bip44.coins[0];
+    var account = Account(bitcoin, 0, changeExternal);
     address = Address(account, 0);
   });
 

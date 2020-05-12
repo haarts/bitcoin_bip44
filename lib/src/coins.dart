@@ -28,7 +28,7 @@ class Coin {
   String get path => 'm/${forHumans(purpose)}/${forHumans(index)}';
 
   Future<List<Account>> accounts() async {
-    List<Account> accounts = [];
+    var accounts = [];
 
     var next = Account(this, 0, changeExternal);
     while (await next.isUsed) {

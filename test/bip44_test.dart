@@ -18,15 +18,15 @@ void main() {
       expect(bip44.coins, hasLength(3));
     });
 
-    test("for bitcoin", () {
+    test('for bitcoin', () {
       expect(bip44.coins[0].path, "m/44'/0'");
     });
 
-    test("for testnets", () {
+    test('for testnets', () {
       expect(bip44.coins[1].path, "m/44'/1'");
     });
 
-    test("for litecoin", () {
+    test('for litecoin', () {
       expect(bip44.coins[2].path, "m/44'/2'");
     });
   });

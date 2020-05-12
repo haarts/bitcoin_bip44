@@ -6,7 +6,7 @@ import 'package:bitcoin_bip44/bitcoin_bip44.dart';
 
 void main() {
   test('list accounts', () async {
-    Coin coin = Coin(Chain.seed('00'), bitcoin);
+    var coin = Coin(Chain.seed('00'), bitcoin);
     scanners = [MockScanner()];
 
     expect(await coin.accounts(), hasLength(10));
@@ -16,6 +16,7 @@ void main() {
 class MockScanner implements Scanner {
   int counter = 0;
 
+  @override
   Future<bool> present(String address) {
     if (counter > 19) {
       return Future.value(false);

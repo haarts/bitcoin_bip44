@@ -17,6 +17,7 @@ class Blockchair implements Scanner {
 
   Blockchair(this.url);
 
+  @override
   Future<bool> present(String address) async {
     var response = await http.get('$url/bitcoin/dashboards/address/$address',
         headers: defaultHeaders);

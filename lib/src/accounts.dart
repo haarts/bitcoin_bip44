@@ -33,7 +33,7 @@ class Account {
   }
 
   Future<List<Address>> usedAddresses() async {
-    List<Address> usedAddresses = [];
+    var usedAddresses = [];
 
     var addressIndex = 0;
     var nextAddress = Address(this, addressIndex);

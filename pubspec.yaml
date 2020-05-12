@@ -15,6 +15,7 @@ dev_dependencies:
     hex: ^0.1.2
     mock_web_server:
         git: https://github.com/haarts/MockWebServer.git
+    pedantic: ^1.9.0
 
 environment:
     sdk: ">=2.4.0 <3.0.0"

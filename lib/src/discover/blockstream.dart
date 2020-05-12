@@ -15,6 +15,7 @@ class Blockstream implements Scanner {
 
   Blockstream(this.url);
 
+  @override
   Future<bool> present(String address) async {
     var response =
         await http.get('$url/address/$address', headers: defaultHeaders);
