@@ -20,15 +20,15 @@ class Coins {
 }
 
 class Coin {
+  Coin(this.chain, this.index);
+
   final Chain chain;
   final int index;
-
-  Coin(this.chain, this.index);
 
   String get path => 'm/${forHumans(purpose)}/${forHumans(index)}';
 
   Future<List<Account>> accounts() async {
-    var accounts = [];
+    var accounts = <Account>[];
 
     var next = Account(this, 0, changeExternal);
     while (await next.isUsed) {

@@ -24,12 +24,10 @@ String toP2PKH(ECPoint publicKey) {
 }
 
 class Address {
+  Address(this.account, this.index);
+
   final Account account;
   final int index;
-
-  Address(Account account, int index)
-      : account = account,
-        index = index;
 
   String get path => '${account.path}/$index';
   Chain get chain => account.chain;

@@ -1,10 +1,12 @@
 import 'package:bitcoin_bip44/bitcoin_bip44.dart';
 
+// ignore_for_file: avoid_print
+
 void main() {
   var bip44 = Bip44(toHexString('some seed'));
   var bitcoin = bip44.coins[0];
   var account = Account(bitcoin, 0, changeExternal);
-  account.nextUnusedAddress().then((address) => print(address));
+  account.nextUnusedAddress().then(print);
 
   // Add a scanner of your own:
   scanners = [MyOwnScanner()];

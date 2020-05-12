@@ -7,14 +7,11 @@ import 'coins.dart';
 import 'discover.dart';
 
 class Account {
+  Account(this.coin, this.index, this.change);
+
   final Coin coin;
   final int index;
   final int change;
-
-  Account(Coin coin, int index, int change)
-      : coin = coin,
-        index = index,
-        change = change;
 
   String get path => '${coin.path}/$index/$change';
   Chain get chain => coin.chain;
@@ -33,7 +30,7 @@ class Account {
   }
 
   Future<List<Address>> usedAddresses() async {
-    var usedAddresses = [];
+    var usedAddresses = <Address>[];
 
     var addressIndex = 0;
     var nextAddress = Address(this, addressIndex);

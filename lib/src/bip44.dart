@@ -19,7 +19,7 @@ String forHumans(int index) {
 }
 
 class Bip44 {
-  final List<Coin> coins;
-
   Bip44(seed) : coins = Coins.coins(Chain.seed(seed));
+
+  final List<Coin> coins;
 }

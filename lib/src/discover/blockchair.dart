@@ -6,16 +6,15 @@ import 'package:http/http.dart' as http;
 import '../discover.dart';
 
 class Blockchair implements Scanner {
+  Blockchair(this.url);
+  Blockchair.withDefaultUrl() : url = Blockchair.defaultUrl;
+
   static const String defaultUrl = 'https://api.blockchair.com';
   static const Map<String, String> defaultHeaders = {
     'User-Agent': 'Dart bitcoin_bip44 library'
   };
 
   final String url;
-
-  Blockchair.withDefaultUrl() : url = Blockchair.defaultUrl;
-
-  Blockchair(this.url);
 
   @override
   Future<bool> present(String address) async {
