@@ -1,7 +1,8 @@
 name: bitcoin_bip44
 version: 0.1.2
 description: Library implementing Bitcoins BIP44 (HD wallet organization) specification in a Flutter friendly fashion.
-homepage: https://github.com/inapay/bitcoin_bip32
+author: Harm Aarts <harm@aarts.email>
+homepage: https://github.com/haarts/bitcoin_bip32
 
 dependencies:
     base58check: ^1.0.1
